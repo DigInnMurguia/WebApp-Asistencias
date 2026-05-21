@@ -24,8 +24,6 @@ jobs:
           node-version: '22.x'
 
       - name: npm install, build, and test
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }} 
         run: |
           npm install
           npm run build --if-present
@@ -53,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_13C7465872C946629578E2BD52F52719 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_0B902D49FEC34736A72EC30A5829C368 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B3A3F8572FA442C594D4A346ACBE8F11 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6E33212BBECC40EC89596FF9B6A76A79 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8EF7BDC030EC41F985C22DEB242E13F6 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_9671B081B9274675B859F08CEEDD76C0 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -64,5 +62,4 @@ jobs:
           app-name: 'WebAsistencias'
           slot-name: 'Production'
           package: .
-
           
